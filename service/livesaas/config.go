@@ -97,6 +97,46 @@ var (
 				"Version": []string{ServiceVersion20200601},
 			},
 		},
+		"GetPageWatchDataAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetPageWatchDataAPI"},
+				"Version": []string{ServiceVersion20200601},
+			},
+		},
+		"ListUserBehaviorDataAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListUserBehaviorDataAPI"},
+				"Version": []string{ServiceVersion20200601},
+			},
+		},
+		"GetRealTimeOnlineNumberAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetRealTimeOnlineNumberAPI"},
+				"Version": []string{ServiceVersion20200601},
+			},
+		},
+		"GetActivityAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetActivityAPI"},
+				"Version": []string{ServiceVersion20200601},
+			},
+		},
+		"ForbidLiveStreamAPI": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ForbidLiveStreamAPI"},
+				"Version": []string{ServiceVersion20200601},
+			},
+		},
 	}
 )
 

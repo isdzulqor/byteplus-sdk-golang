@@ -108,3 +108,48 @@ func (p *LIVESAAS) GetStreamsAPI(query url.Values) (*GetStreamsResponse, int, er
 	}
 	return resp, statesCode, nil
 }
+
+func (p *LIVESAAS) GetActivityAPI(query url.Values) (*GetActivityResponse, int, error) {
+	resp := new(GetActivityResponse)
+	statesCode, err := p.commonHandler("GetActivityAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}
+
+func (p *LIVESAAS) GetPageWatchDataAPI(query url.Values) (*GetPageWatchDataResponse, int, error) {
+	resp := new(GetPageWatchDataResponse)
+	statesCode, err := p.commonHandler("GetPageWatchDataAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}
+
+func (p *LIVESAAS) ListUserBehaviorDataAPI(query url.Values) (*ListUserBehaviorDataAPIResponse, int, error) {
+	resp := new(ListUserBehaviorDataAPIResponse)
+	statesCode, err := p.commonHandler("ListUserBehaviorDataAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}
+
+func (p *LIVESAAS) GetRealTimeOnlineNumberAPI(query url.Values) (*GetRealTimeOnlineNumberAPIResponse, int, error) {
+	resp := new(GetRealTimeOnlineNumberAPIResponse)
+	statesCode, err := p.commonHandler("GetRealTimeOnlineNumberAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}
+
+func (p *LIVESAAS) ForbidLiveStreamAPI(query url.Values, body string) (*ForbidLiveStreamAPIResponse, int, error) {
+	resp := new(ForbidLiveStreamAPIResponse)
+	statesCode, err := p.commonHandlerJson("ForbidLiveStreamAPI", query, resp, body)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}

@@ -77,6 +77,69 @@ type GetSDKTokenResponse struct {
 	Result           *GetSDKTokenResponseBody `json:"Result,omitempty"`
 }
 
+type GetPageWatchDataResponseBody struct {
+	ActivityId int64 `thrift:"ActivityId,1" frugal:"1,default,i64" json:"ActivityId"`
+	PageClicks struct {
+		PV        int     `thrift:"PV,1" frugal:"1,default,i32" json:"PV"`
+		UV        int     `thrift:"UV,2" frugal:"2,default,i32" json:"UV"`
+		TotalTime int     `thrift:"TotalTime,3" frugal:"3,default,i32" json:"TotalTime"`
+		AvgTime   float64 `thrift:"AvgTime,4" frugal:"4,default,double" json:"AvgTime"`
+		AvgNumber float64 `thrift:"AvgNumber,5" frugal:"5,default,double" json:"AvgNumber"`
+		PCU       int     `thrift:"PCU,6" frugal:"6,default,i32" json:"PCU"`
+	}
+}
+
+type GetPageWatchDataResponse struct {
+	ResponseMetadata base.ResponseMetadata
+	Result           *GetPageWatchDataResponseBody `json:"Result,omitempty"`
+}
+
+type ListUserBehaviorDataAPIResponseBody struct {
+	TotalItemCount int32 `thrift:"TotalItemCount,1" json:"TotalItemCount"`
+	Data           []struct {
+		UserName       string   `thrift:"UserName,1" json:"UserName"`
+		Region         string   `thrift:"Region,2" json:"Region"`
+		IP             string   `thrift:"IP,3" json:"IP"`
+		JoinAt         []int64  `thrift:"JoinAt,4" json:"JoinAt"`
+		LeaveAt        []int64  `thrift:"LeaveAt,5" json:"LeaveAt"`
+		UserId         int64    `thrift:"UserId,6" json:"UserId"`
+		UserTel        string   `thrift:"UserTel,7" json:"UserTel"`
+		InviteCode     string   `thrift:"InviteCode,8" json:"InviteCode"`
+		WatchTime      int32    `thrift:"WatchTime,9" json:"WatchTime"`
+		CommentCounts  int32    `thrift:"CommentCounts,10" json:"CommentCounts"`
+		AccessTime     string   `thrift:"AccessTime,11" json:"AccessTime"`
+		Extra          string   `thrift:"Extra,12" json:"Extra"`
+		UserDevice     []string `thrift:"UserDevice,13" json:"UserDevice"`
+		ExternalUserId string   `thrift:"ExternalUserId,14" json:"ExternalUserId"`
+		SilenceStatus  int32    `thrift:"SilenceStatus,15" json:"SilenceStatus"`
+	} `thrift:"Data,2" json:"Data"`
+	ScrollId string `thrift:"ScrollId,3" json:"ScrollId"`
+}
+
+type ListUserBehaviorDataAPIResponse struct {
+	ResponseMetadata base.ResponseMetadata
+	Result           *ListUserBehaviorDataAPIResponseBody `json:"Result,omitempty"`
+}
+
+type GetRealTimeOnlineNumberAPIResponseBody struct {
+	RealPopularity int `thrift:"RealPopularity,1" json:"RealPopularity"`
+	FakePopularity int `thrift:"FakePopularity,2" json:"FakePopularity"`
+}
+
+type GetRealTimeOnlineNumberAPIResponse struct {
+	ResponseMetadata base.ResponseMetadata
+	Result           *GetRealTimeOnlineNumberAPIResponseBody `json:"Result,omitempty"`
+}
+
+type ForbidLiveStreamAPIResponseBody struct {
+	Status bool `thrift:"Status,1" frugal:"1,default=bool" json:"Status"`
+}
+
+type ForbidLiveStreamAPIResponse struct {
+	ResponseMetadata base.ResponseMetadata
+	Result           *ForbidLiveStreamAPIResponseBody `json:"Result,omitempty"`
+}
+
 // ListActivityAPI 房间列表
 
 type ListActivityParam struct {
@@ -620,4 +683,26 @@ type GetStreamsResponseBody struct {
 type GetStreamsResponse struct {
 	ResponseMetadata base.ResponseMetadata
 	Result           *GetStreamsResponseBody `json:"Result,omitempty"`
+}
+
+type GetActivityResponseBody struct {
+	Id                 int64  `thrift:"Id,1" frugal:"1,default,i64" json:"Id"`
+	Name               string `thrift:"Name,2" frugal:"2,default,string" json:"Name"`
+	LiveTime           int64  `thrift:"LiveTime,3" frugal:"3,default,i64" json:"LiveTime"`
+	IsBeginLiveEnable  int32  `thrift:"IsBeginLiveEnable,4" frugal:"4,default,i32" json:"IsBeginLiveEnable"`
+	EndTime            int64  `thrift:"EndTime,5" frugal:"5,default,i64" json:"EndTime"`
+	IsAutoEndEnable    int32  `thrift:"IsAutoEndEnable,6" frugal:"6,default,i32" json:"IsAutoEndEnable"`
+	CoverImage         string `thrift:"CoverImage,7" frugal:"7,default,string" json:"CoverImage"`
+	VerticalCoverImage string `thrift:"VerticalCoverImage,8" frugal:"8,default,string" json:"VerticalCoverImage"`
+	Status             int32  `thrift:"Status,9" frugal:"9,default,i32" json:"Status"`
+	ViewUrl            string `thrift:"ViewUrl,10" frugal:"10,default,string" json:"ViewUrl"`
+	IsPageViewEnable   int32  `thrift:"IsPageViewEnable,11" frugal:"11,default,i32" json:"IsPageViewEnable"`
+	IsLockPreview      int32  `thrift:"IsLockPreview,12" frugal:"12,default,i32" json:"IsLockPreview"`
+	OwnerSubAccount    string `thrift:"OwnerSubAccount,13" frugal:"13,default,string" json:"OwnerSubAccount"`
+	LiveMode           int32  `thrift:"LiveMode,14" frugal:"14,default,i32" json:"LiveMode"`
+}
+
+type GetActivityResponse struct {
+	ResponseMetadata base.ResponseMetadata
+	Result           *GetActivityResponseBody `json:"Result,omitempty"`
 }
